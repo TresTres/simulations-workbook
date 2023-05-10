@@ -16,9 +16,9 @@ def kinematic_distance(
     e.g. meters, meters per second, meters per second squared.
     """
     try:
-        if any([time < 0, distance < 0]):
+        if time < 0:
             raise ValueError(
-                f"Time and distance must be positive. Time: {time}, distance: {distance}"
+                f"Time must be positive. Time: {time}"
             )
         return distance + velocity * time + 0.5 * acceleration * time**2
     except ValueError as e:
@@ -32,11 +32,12 @@ def newton_universal_gravitation(
     """
     Calculates the force of attraction between two masses in Newtons.
     Masses are assumed to be in kilograms and distance in meters.
+    Distance can be treated as a vector, but the magnitude is used.
     """
     try:
-        if any([mass1 <= 0, mass2 <= 0, distance <= 0]):
+        if any([mass1 <= 0, mass2 <= 0]):
             raise ValueError(
-                f"Masses and distance must be positive. Masses: {mass1}, {mass2}. Distance: {distance}"
+                f"Masses must be positive. Masses: {mass1}, {mass2}"
             )
         return G * (mass1 * mass2) / (abs(distance) ** 2)
     except ValueError as e:
