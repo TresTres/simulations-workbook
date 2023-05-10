@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "physics-simulations"
+version = "0.1.0"
+description = ""
+authors = ["Ez Ablaza <ezra.ablaza.inbox@gmail.com>"]
+readme = "README.md"
+packages = [{include = "physics_simulations"}]
+
+[tool.poetry.dependencies]
+python = "~3.9"
+vpython = "^7.6.4"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^7.3.1"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
